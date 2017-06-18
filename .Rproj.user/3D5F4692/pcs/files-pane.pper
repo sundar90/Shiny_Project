@@ -1,0 +1,9 @@
+{
+    "path" : "E:/datascience/Developing_data_products/shiny_project/HDFC_stocks",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

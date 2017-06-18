@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "hdfc_stock <- read.csv(\"HDFCBANK.csv\")",
+    "created" : 1497762047726.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3289323977",
+    "id" : "22E3FC40",
+    "lastKnownWriteTime" : 1497765102,
+    "last_content_update" : 1497765102655,
+    "path" : "E:/datascience/Developing_data_products/shiny_project/HDFC_stocks/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

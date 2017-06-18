@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# This is the server logic for a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyServer(function(input, output) {\n library(ggplot2)\n hdfc_stock$Date <- as.Date(hdfc_stock$Date,\"%m/%d/%Y\")\n fit <- glm(Close ~ Date,data = hdfc_stock)\n \n fit$pred1 <- reactive({\n          \n          fit_input <- input$Date1\n          predict(fit,newdata=data.frame(Date=fit_input))\n  })\n  \n fit$pred2 <- reactive({\n         \n         fit_input <- input$Date2\n         predict(fit,newdata=data.frame(Date=fit_input))\n })\n  output$text1 <- renderText({\n          fit$pred1()\n  })\n  \n  output$plot1 <- renderPlot({\n          ggplot(hdfc_stock,aes(Date,Close)) +  geom_line() + geom_smooth(method = \"glm\",formula = y ~ x)\n  })\n  \n  output$text2 <- renderText({\n          (fit$pred1() - fit$pred2()) * input$input1\n  })\n})\n\n",
+    "created" : 1497761968828.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2281979397",
+    "id" : "3ED86394",
+    "lastKnownWriteTime" : 1497762207,
+    "last_content_update" : 1497762207244,
+    "path" : "E:/datascience/Developing_data_products/shiny_project/HDFC_stocks/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+        "source_window_id" : ""
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

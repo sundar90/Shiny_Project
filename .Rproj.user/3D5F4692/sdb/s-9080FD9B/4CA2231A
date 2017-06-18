@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  # Application title\n  titlePanel(\"HDFC Bank Share Price Predictor(in INR Currency)\"),\n\n  # Sidebar with a slider input for number of bins\n  sidebarLayout(\n    sidebarPanel(\n      dateInput('Date1',\n                value = Sys.Date(),\n                  \"Forecast Date(Date for which you want the estimated stock Price):\",\n                  min = NULL,\n                  max = NULL,\n                 startview = \"month\", weekstart = 0,\n                language = \"en\", width = NULL),\n      dateInput('Date2',\n                value = Sys.Date(),\n                \"Date of Purchase:\",\n                min = NULL,\n                max = Sys.Date(),\n                startview = \"month\", weekstart = 0,\n                language = \"en\", width = NULL),\n      numericInput('input1',\"No of Stocks\",value=100)\n    ),\n    \n\n    # Show a plot of the generated distribution\n    mainPanel(\n      h3(\"Historic Performance Graph:\"),\n      plotOutput('plot1'),\n      h3(\"Estimated Stock Price for Forecast Date:\"),\n      textOutput('text1'),\n      h3(\"Estimated Profit as on Forecast Date(for the no of stocks entered and Purchase Date):\"),\n      textOutput(\"text2\")\n    )\n  )\n))\n",
+    "created" : 1497761974100.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3303337384",
+    "id" : "4CA2231A",
+    "lastKnownWriteTime" : 1497762288,
+    "last_content_update" : 1497762288548,
+    "path" : "E:/datascience/Developing_data_products/shiny_project/HDFC_stocks/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+        "source_window_id" : ""
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

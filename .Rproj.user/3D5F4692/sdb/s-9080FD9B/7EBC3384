@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "HDFC Bank Stock Performance Predictor\n========================================================\nauthor: Sundararaman P\ndate: 6/17/2017\nautosize: true\n\nAbout the Application\n========================================================\n\n<small>HDFC Bank Limited  is a leading Indian Banking and Financial Services Company headquartered in Mumbai India. Some of the features of this Application are \n\n- The Application predicts the Stock Price for a future trade date purely based on its historic performance.\n- The Application Uses General Linear Model for calculations\n- On a simple note, it receives a Forecast Date from User and then Displays Estimated Price for the Forecast Date\n- Can also be used to calculate the estimated profit using Stock quantity, Date of Purchase and Date of Forecast.</small>\n- Also displays the Time series historic performance for past year.\n- Data Source : Yahoo Finance(https://in.finance.yahoo.com)\n\nBehind the scenes (Server calculations)\n========================================================\n\n```{r,echo=FALSE}\nlibrary(ggplot2)\n```\n<small>Fitting a General Linear Model to the stock data and predicting Stock price for a future Trade date. </small>\n```{r,fig.width=30,fig.height=10}\n hdfc_stock <- read.csv(\"E:/datascience/Developing_data_products/shiny_project/HDFC_Stocks/HDFCBANK.csv\")\n hdfc_stock$Date <- as.Date(hdfc_stock$Date,\"%m/%d/%Y\")\n fit <- glm(Close ~ Date,data = hdfc_stock)\n predict(fit,newdata=data.frame(Date=as.Date(\"2017-10-30\",\"%Y-%m-%d\")))\n \n```\n\n...Continued\n========================================================\n\n\n<small>Calculating Profit on a given future day for given number of stocks </small>\n```{r, }\n#Number of stocks\nnum <- 10\n#Current Stock Price\ncurr_pr <- 1000\n#Estimated Stock price on Forecasted Date\nest_pr <- 1100\nprofit <- (est_pr - curr_pr) * num\nprofit\n```\nHistoric Performance Chart\n===========================================================\n```{r,fig.height=17,fig.width=35}\nggplot(hdfc_stock,aes(Date,Close)) +  geom_line() + geom_smooth(method = \"glm\",formula = y ~ x)\n```",
+    "created" : 1497710048052.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1642548648",
+    "id" : "7EBC3384",
+    "lastKnownWriteTime" : 1497765763,
+    "last_content_update" : 1497765763816,
+    "path" : "E:/datascience/Developing_data_products/shiny_project/HDFC_stocks/HDFC_stocks.Rpres",
+    "project_path" : "HDFC_stocks.Rpres",
+    "properties" : {
+        "docOutlineVisible" : "1",
+        "source_window_id" : "wtyfc045loryq"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_presentation"
+}
